@@ -3,16 +3,21 @@ const app = express();
 const url = require("url");
 const port = process.env.PORT || 3000;
 
+const KEY = '303'
+
+const cred = {
+    accountSid: "1235871285127567125",
+    authToken: "12353255Jafgu735wegu25"
+};
+
 app.get('/cred', (req, res) => {
-    console.log('req : ', req);
-    console.log('req : ', req.method);
     if(req.method == 'GET'){
-        let urlReq = url.parse(req.url, true);
-        console.log('urlReq : ', urlReq.query.key);
-        if(urlReq.query.key == '303'){
-            res.send('Yes!')
+        let reqUrl = url.parse(req.url, true);
+
+        if(reqUrl.query.key == KEY){
+            res.send(cred);
         } else {
-            res.send('No!')
+            res.send('Bad request!')
         }
     }
 })
