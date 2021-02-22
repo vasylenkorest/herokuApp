@@ -2,9 +2,9 @@
   "name": "node-example",
   "version": "1.0.0",
   "description": "This example is so cool.",
-  "main": "web.js",
+  "main": "app.js",
   "scripts": {
-    "start": "node web.js"
+    "start": "node app.js"
   },
   "keywords": [
     "example",
