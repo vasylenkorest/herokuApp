@@ -3,9 +3,18 @@ const app = express();
 const url = require("url");
 const port = process.env.PORT || 3000;
 
-app.get('/', (req, res) => {
-
-  res.send('No!')
+app.get('/cred', (req, res) => {
+    console.log('req : ', req);
+    console.log('req : ', req.method);
+    if(req.method == 'GET'){
+        let urlReq = url.parse(req.url, true);
+        console.log('urlReq : ', urlReq.query.key);
+        if(urlReq.query.key == '303'){
+            res.send('Yes!')
+        } else {
+            res.send('No!')
+        }
+    }
 })
 
 app.listen(port, () => {
